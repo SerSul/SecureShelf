@@ -38,24 +38,3 @@ void MainWindow::toggleMenu() {
     animation->start(QPropertyAnimation::DeleteWhenStopped); 
 }
 
-
-void MainWindow::changeEvent(QEvent* event) {
-    QMainWindow::changeEvent(event);
-    if (event->type() == QEvent::WindowStateChange) {
-        if (isMinimized()) {
-            if (!circle) {
-                circle = new ClickableCircle();
-                connect(circle, &ClickableCircle::clicked, this, &MainWindow::onCircleClicked);
-            }
-            circle->show();
-        }
-    }
-}
-
-void MainWindow::onCircleClicked() {
-    // Скрыть кружок и показать главное окно
-    if (circle) {
-        circle->hide();
-    }
-    showNormal();
-}

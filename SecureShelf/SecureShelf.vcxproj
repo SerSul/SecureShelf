@@ -89,7 +89,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ClickableCircle.cpp" />
     <ClCompile Include="Cryptor.cpp" />
     <ClCompile Include="HighlightDelegate.cpp" />
     <ClCompile Include="PasswordGenerator.cpp" />
@@ -109,7 +108,6 @@
   <ItemGroup>
     <QtMoc Include="SettingsPopup.h" />
     <QtMoc Include="Cryptor.h" />
-    <QtMoc Include="ClickableCircle.h" />
     <ClInclude Include="HighlightDelegate.h" />
     <ClInclude Include="PasswordGenerator.h" />
     <QtMoc Include="PasswordModel.h" />

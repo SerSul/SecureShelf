@@ -5,7 +5,7 @@
 #include <QPropertyAnimation>
 #include "PasswordModel.h"
 #include "HighlightDelegate.h"
-#include "ClickableCircle.h"
+
 
 
 class MainWindow : public QMainWindow
@@ -14,19 +14,18 @@ class MainWindow : public QMainWindow
 
 private slots:
     void toggleMenu(); 
-    void onCircleClicked(); 
+
 
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
 
-protected:
-    void changeEvent(QEvent* event) override; 
+
 
 
 private:
     Ui::MainWindow ui;
     PasswordModel* passwordModel;
-    ClickableCircle* circle = nullptr;
+
 };
