@@ -7,7 +7,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1346</width>
+    <width>1280</width>
     <height>874</height>
    </rect>
   </property>
@@ -567,16 +567,16 @@ color: rgb(210, 210, 210);</string>
      <number>0</number>
     </property>
     <property name="leftMargin">
-     <number>10</number>
+     <number>0</number>
     </property>
     <property name="topMargin">
-     <number>10</number>
+     <number>0</number>
     </property>
     <property name="rightMargin">
-     <number>10</number>
+     <number>0</number>
     </property>
     <property name="bottomMargin">
-     <number>10</number>
+     <number>0</number>
     </property>
     <item>
      <widget class="QFrame" name="frame_main">
@@ -1040,6 +1040,12 @@ QPushButton:pressed {
                 </property>
                 <item>
                  <widget class="QPushButton" name="btn_passwords">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
                   <property name="minimumSize">
                    <size>
                     <width>0</width>
@@ -1048,7 +1054,7 @@ QPushButton:pressed {
                   </property>
                   <property name="styleSheet">
                    <string notr="true">QPushButton {	
-	background-image: url(:/20x20/icons/20x20/cil-lock-locked.png);
+	background-image: url(:/16x16/icons/16x16/cil-folder.png);
 	background-position: left center;
     background-repeat: no-repeat;
 	border: none;
@@ -1095,7 +1101,7 @@ QPushButton:pressed {
                   </property>
                   <property name="styleSheet">
                    <string notr="true">QPushButton {	
-	background-image: url(:/20x20/icons/20x20/cil-settings.png);
+	background-image: url(:/16x16/icons/16x16/cil-settings.png);
 	background-position: left center;
     background-repeat: no-repeat;
 	border: none;
@@ -1162,6 +1168,45 @@ QPushButton:pressed {
                   </property>
                   <property name="text">
                    <string>Save</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="btn_utils">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>60</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton {	
+	background-image: url(:/16x16/icons/16x16/cil-lock-locked.png);
+	background-position: left center;
+    background-repeat: no-repeat;
+	border: none;
+	border-left: 28px solid rgb(27, 29, 35);
+	background-color: rgb(27, 29, 35);
+	text-align: left;
+	padding-left: 45px;
+}
+QPushButton:hover {
+	background-color: rgb(33, 37, 43);
+	border-left: 28px solid rgb(33, 37, 43);
+}
+QPushButton:pressed {	
+	background-color: rgb(85, 170, 255);
+	border-left: 28px solid rgb(85, 170, 255);
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>PushButton</string>
                   </property>
                  </widget>
                 </item>
@@ -1362,6 +1407,32 @@ QPushButton:pressed {
                    </layout>
                   </widget>
                   <widget class="QWidget" name="page_save"/>
+                  <widget class="QWidget" name="page_utils">
+                   <widget class="QWidget" name="verticalLayoutWidget">
+                    <property name="geometry">
+                     <rect>
+                      <x>50</x>
+                      <y>50</y>
+                      <width>91</width>
+                      <height>391</height>
+                     </rect>
+                    </property>
+                    <layout class="QVBoxLayout" name="layoutForToggles"/>
+                   </widget>
+                   <widget class="QPushButton" name="btn_test">
+                    <property name="geometry">
+                     <rect>
+                      <x>460</x>
+                      <y>200</y>
+                      <width>75</width>
+                      <height>24</height>
+                     </rect>
+                    </property>
+                    <property name="text">
+                     <string>Test</string>
+                    </property>
+                   </widget>
+                  </widget>
                  </widget>
                 </item>
                </layout>

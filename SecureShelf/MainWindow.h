@@ -5,7 +5,8 @@
 #include <QPropertyAnimation>
 #include "PasswordModel.h"
 #include "HighlightDelegate.h"
-
+#include "ToggleSwitch.h"
+#include "dialog.h"
 
 
 class MainWindow : public QMainWindow
@@ -14,6 +15,7 @@ class MainWindow : public QMainWindow
 
 private slots:
     void toggleMenu(); 
+    void openDialog();
 
 
 public:

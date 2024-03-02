@@ -61,17 +61,20 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ClickableCircle.cpp">
-      <Filter>Source Files\UI</Filter>
-    </ClCompile>
     <ClCompile Include="PasswordGenerator.cpp">
       <Filter>Source Files\Security</Filter>
     </ClCompile>
     <ClCompile Include="Cryptor.cpp">
       <Filter>Source Files\Security</Filter>
     </ClCompile>
-    <ClCompile Include="SettingsPopup.cpp">
+    <ClCompile Include="ToggleSwitch.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorRepository.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialog.cpp">
+      <Filter>Source Files\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -81,6 +84,9 @@
     <ClInclude Include="PasswordGenerator.h">
       <Filter>Header Files\Security</Filter>
     </ClInclude>
+    <ClInclude Include="ColorRepository.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MainWindow.h">
@@ -89,14 +95,19 @@
     <QtMoc Include="PasswordModel.h">
       <Filter>Header Files\UI</Filter>
     </QtMoc>
-    <QtMoc Include="ClickableCircle.h">
-      <Filter>Header Files\UI</Filter>
-    </QtMoc>
     <QtMoc Include="Cryptor.h">
       <Filter>Header Files\Security</Filter>
     </QtMoc>
-    <QtMoc Include="SettingsPopup.h">
-      <Filter>Header Files</Filter>
+    <QtMoc Include="ToggleSwitch.h">
+      <Filter>Header Files\UI</Filter>
     </QtMoc>
+    <QtMoc Include="Dialog.h">
+      <Filter>Header Files\UI</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="dialogWindow.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
 </Project>

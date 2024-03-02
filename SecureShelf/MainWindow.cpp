@@ -10,6 +10,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui.btn_passwords, &QPushButton::clicked, this, [this]() { ui.stackedWidget->setCurrentIndex(0); });
     connect(ui.btn_settings, &QPushButton::clicked, this, [this]() { ui.stackedWidget->setCurrentIndex(1); });
     connect(ui.btn_save, &QPushButton::clicked, this, [this]() { ui.stackedWidget->setCurrentIndex(2); });
+    connect(ui.btn_utils, &QPushButton::clicked, this, [this]() { ui.stackedWidget->setCurrentIndex(3); });
+    connect(ui.btn_test, &QPushButton::clicked, this, &MainWindow::openDialog);
+
 
     //Таблица паролей
     passwordModel = new PasswordModel(this);
@@ -19,6 +22,16 @@ MainWindow::MainWindow(QWidget *parent)
     passwordModel->addPassword("user2", "pass2", "service2", "site2", "note2");
     auto* delegate = new HighlightDelegate(this);
     ui.passwords_table->setItemDelegate(delegate);
+
+    ToggleSwitch* toggleDigits = new ToggleSwitch(ui.page_utils);
+    ToggleSwitch* toggleLowercase = new ToggleSwitch(ui.page_utils);
+    ToggleSwitch* toggleSpecialChars = new ToggleSwitch(ui.page_utils);
+    ToggleSwitch* toggleUppercase = new ToggleSwitch(ui.page_utils);
+    ui.layoutForToggles->addWidget(toggleDigits);
+    ui.layoutForToggles->addWidget(toggleLowercase);
+    ui.layoutForToggles->addWidget(toggleSpecialChars);
+    ui.layoutForToggles->addWidget(toggleUppercase);
+    //кнопки в utils для паролей
 
 
 }
@@ -38,3 +51,8 @@ void MainWindow::toggleMenu() {
     animation->start(QPropertyAnimation::DeleteWhenStopped); 
 }
 
+void MainWindow::openDialog()
+{
+    Dialog dialog(this); // Создаём диалоговое окно
+    dialog.exec(); // Показываем его как модальное окно
+}

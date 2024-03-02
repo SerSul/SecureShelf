@@ -89,12 +89,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ColorRepository.cpp" />
     <ClCompile Include="Cryptor.cpp" />
+    <ClCompile Include="Dialog.cpp" />
     <ClCompile Include="HighlightDelegate.cpp" />
     <ClCompile Include="PasswordGenerator.cpp" />
     <ClCompile Include="PasswordModel.cpp" />
-    <ClCompile Include="SettingsPopup.cpp" />
+    <ClCompile Include="ToggleSwitch.cpp" />
     <QtRcc Include="MainWindow.qrc" />
+    <QtUic Include="dialogWindow.ui" />
     <QtUic Include="MainWindow.ui" />
     <QtMoc Include="MainWindow.h" />
     <ClCompile Include="MainWindow.cpp" />
@@ -106,8 +109,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="SettingsPopup.h" />
+    <QtMoc Include="ToggleSwitch.h" />
     <QtMoc Include="Cryptor.h" />
+    <ClInclude Include="ColorRepository.h" />
+    <QtMoc Include="Dialog.h" />
     <ClInclude Include="HighlightDelegate.h" />
     <ClInclude Include="PasswordGenerator.h" />
     <QtMoc Include="PasswordModel.h" />
