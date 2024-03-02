@@ -15,8 +15,7 @@ private slots:
     void on_btn_generate_clicked()
     {
         PasswordGenerator generator; 
-        QStringList passwordList;
-
+        ui->passwordsList->clear();
         bool useDigits = toggleDigits->isChecked();
         bool useLowercase = toggleLowercase->isChecked();
         bool useSpecialChars = toggleSpecialChars->isChecked();
@@ -25,15 +24,14 @@ private slots:
         // Генерация паролей
         for (int i = 0; i < 9; ++i) {
             QString password = generator.generate(ui->line_count->text().toInt(), useLowercase, useUppercase, useDigits, useSpecialChars); // Пример с фиксированной длиной 12
-            passwordList.append(password);
-            qDebug() << password; // Выводим пароль в консоль (или используем по-другому)
+            ui->passwordsList->addItem(password);
+            qDebug() << password; 
         }
-        passwordsListModel->setStringList(passwordList);
     }
 
 public:
 
-    explicit Dialog(QWidget *parent = nullptr) : QDialog(parent), ui(new Ui::Dialog)
+    explicit Dialog(QWidget* parent = nullptr) : QDialog(parent), ui(new Ui::Dialog)
     {
 
         ui->setupUi(this);
@@ -45,26 +43,10 @@ public:
         ui->buttons_layout->addWidget(toggleLowercase);
         ui->buttons_layout->addWidget(toggleDigits);
         ui->buttons_layout->addWidget(toggleSpecialChars);
-  
+
         QRegularExpression rx("[0-9]{1,3}");
         ui->line_count->setValidator(new QRegularExpressionValidator(rx, ui->line_count));
-        passwordsListModel = new QStringListModel(this);
-        ui->passwordsList->setModel(passwordsListModel);
 
-        ui->passwordsList->setStyleSheet("QListView {"
-            "border: none;"
-            "}"
-            "QListView::item {"
-            "border-bottom: 1px solid lightgray;"
-            "padding: 5px;"
-            "}"
-            "QListView::item:selected {"
-            "background: lightblue;"
-            "color: black;"
-            "}");
-        ui->passwordsList->setEditTriggers(QAbstractItemView::NoEditTriggers); 
-        ui->passwordsList->setSelectionMode(QAbstractItemView::SingleSelection); // Разрешаем выделять только один элемент за раз
-        ui->passwordsList->setSelectionBehavior(QAbstractItemView::SelectRows); // Выделяем всю строку
 
     }
 
@@ -82,6 +64,5 @@ private:
     ToggleSwitch* toggleLowercase;
     ToggleSwitch* toggleSpecialChars;
     ToggleSwitch* toggleUppercase;
-    QStringListModel* passwordsListModel;
     
 };

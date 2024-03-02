@@ -105,10 +105,9 @@ QColor ColorRepository::buttonBackground()
 
 QBrush ColorRepository::progressBarOutlineBrush(const QRect& rect)
 {
-    QLinearGradient gradient(0, rect.height(), rect.width(), 0);
-    gradient.setColorAt(0.0, QColor(0x11, 0xc2, 0xe1));
-    gradient.setColorAt(1.0, QColor(0x89, 0x3a, 0x94));
-    return QBrush(gradient);
+    QColor grayColor(128, 128, 128); 
+
+    return QBrush(grayColor);
 }
 
 QBrush ColorRepository::progressBarOutlineFadingBrush(const QRect& rect)
