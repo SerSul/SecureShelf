@@ -8,7 +8,7 @@
     <x>0</x>
     <y>0</y>
     <width>1280</width>
-    <height>874</height>
+    <height>720</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -1014,8 +1014,26 @@ QPushButton:pressed {
              <property name="bottomMargin">
               <number>0</number>
              </property>
-             <item alignment="Qt::AlignTop">
+             <item>
               <widget class="QFrame" name="frame_menus">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
                <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
                </property>
@@ -1125,53 +1143,6 @@ QPushButton:pressed {
                  </widget>
                 </item>
                 <item>
-                 <widget class="QPushButton" name="btn_save">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>60</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>Segoe UI</family>
-                   </font>
-                  </property>
-                  <property name="layoutDirection">
-                   <enum>Qt::LeftToRight</enum>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">QPushButton {	
-	background-image: url(:/16x16/icons/16x16/cil-save.png);
-	background-position: left center;
-    background-repeat: no-repeat;
-	border: none;
-	border-left: 28px solid rgb(27, 29, 35);
-	background-color: rgb(27, 29, 35);
-	text-align: left;
-	padding-left: 45px;
-}
-QPushButton:hover {
-	background-color: rgb(33, 37, 43);
-	border-left: 28px solid rgb(33, 37, 43);
-}
-QPushButton:pressed {	
-	background-color: rgb(85, 170, 255);
-	border-left: 28px solid rgb(85, 170, 255);
-}</string>
-                  </property>
-                  <property name="text">
-                   <string>Save</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
                  <widget class="QPushButton" name="btn_utils">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -1213,12 +1184,12 @@ QPushButton:pressed {
                </layout>
               </widget>
              </item>
-             <item alignment="Qt::AlignBottom">
+             <item>
               <widget class="QFrame" name="frame_extra_menus">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
+                 <verstretch>70</verstretch>
                 </sizepolicy>
                </property>
                <property name="frameShape">
@@ -1302,6 +1273,17 @@ QPushButton:pressed {
                 </property>
                 <item>
                  <widget class="QStackedWidget" name="stackedWidget">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>50</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <pointsize>14</pointsize>
+                   </font>
+                  </property>
                   <property name="styleSheet">
                    <string notr="true">background: transparent;</string>
                   </property>
@@ -1408,22 +1390,11 @@ QPushButton:pressed {
                   </widget>
                   <widget class="QWidget" name="page_save"/>
                   <widget class="QWidget" name="page_utils">
-                   <widget class="QWidget" name="verticalLayoutWidget">
-                    <property name="geometry">
-                     <rect>
-                      <x>50</x>
-                      <y>50</y>
-                      <width>91</width>
-                      <height>391</height>
-                     </rect>
-                    </property>
-                    <layout class="QVBoxLayout" name="layoutForToggles"/>
-                   </widget>
                    <widget class="QPushButton" name="btn_test">
                     <property name="geometry">
                      <rect>
-                      <x>460</x>
-                      <y>200</y>
+                      <x>1050</x>
+                      <y>670</y>
                       <width>75</width>
                       <height>24</height>
                      </rect>
@@ -1431,6 +1402,509 @@ QPushButton:pressed {
                     <property name="text">
                      <string>Test</string>
                     </property>
+                   </widget>
+                   <widget class="QFrame" name="frameGenerator">
+                    <property name="geometry">
+                     <rect>
+                      <x>20</x>
+                      <y>20</y>
+                      <width>491</width>
+                      <height>301</height>
+                     </rect>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QFrame#frameGenerator {
+    border: 1px solid gray; /* Установите толщину и цвет границы */
+    border-radius: 10px; /* Установите радиус закругления углов */
+}
+</string>
+                    </property>
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_2">
+                     <item row="0" column="1" rowspan="2">
+                      <widget class="QFrame" name="frameList">
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QHBoxLayout" name="horizontalLayout_11">
+                        <item>
+                         <widget class="QFrame" name="mainSettings">
+                          <property name="frameShape">
+                           <enum>QFrame::StyledPanel</enum>
+                          </property>
+                          <property name="frameShadow">
+                           <enum>QFrame::Raised</enum>
+                          </property>
+                          <layout class="QGridLayout" name="gridLayout">
+                           <item row="0" column="0">
+                            <layout class="QVBoxLayout" name="buttons_layout">
+                             <property name="spacing">
+                              <number>0</number>
+                             </property>
+                             <item>
+                              <widget class="QLineEdit" name="line_count">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>0</width>
+                                 <height>0</height>
+                                </size>
+                               </property>
+                               <property name="font">
+                                <font>
+                                 <pointsize>10</pointsize>
+                                </font>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">QLineEdit {
+    border: 2px solid gray;
+    border-radius: 3px;
+}
+</string>
+                               </property>
+                               <property name="text">
+                                <string>9</string>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </item>
+                           <item row="0" column="3">
+                            <layout class="QVBoxLayout" name="labels_layout">
+                             <item>
+                              <widget class="QLabel" name="label_symbols">
+                               <property name="font">
+                                <font>
+                                 <pointsize>10</pointsize>
+                                 <bold>true</bold>
+                                </font>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">background: transparent;
+margin-left: 5px;
+margin-bottom:20px</string>
+                               </property>
+                               <property name="text">
+                                <string>Количество символов</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QLabel" name="label_5">
+                               <property name="font">
+                                <font>
+                                 <pointsize>10</pointsize>
+                                 <bold>true</bold>
+                                </font>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">background: transparent;
+margin-left: 5px;
+margin-bottom:20px</string>
+                               </property>
+                               <property name="text">
+                                <string>Прописные буквы</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QLabel" name="label_4">
+                               <property name="font">
+                                <font>
+                                 <pointsize>10</pointsize>
+                                 <bold>true</bold>
+                                </font>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">background: transparent;
+margin-left: 5px;
+margin-bottom:20px</string>
+                               </property>
+                               <property name="text">
+                                <string>Строчные буквы</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QLabel" name="label_3">
+                               <property name="font">
+                                <font>
+                                 <pointsize>10</pointsize>
+                                 <bold>true</bold>
+                                </font>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">background: transparent;
+margin-left: 5px;
+margin-bottom:20px</string>
+                               </property>
+                               <property name="text">
+                                <string>Цифры</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QLabel" name="label">
+                               <property name="font">
+                                <font>
+                                 <pointsize>10</pointsize>
+                                 <bold>true</bold>
+                                </font>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">background: transparent;
+margin-left: 5px;
+margin-bottom:20px</string>
+                               </property>
+                               <property name="text">
+                                <string> Спец. символы</string>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </item>
+                           <item row="1" column="0" colspan="4">
+                            <layout class="QVBoxLayout" name="generate_layout">
+                             <item>
+                              <widget class="QPushButton" name="btn_generate">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>0</width>
+                                 <height>25</height>
+                                </size>
+                               </property>
+                               <property name="font">
+                                <font>
+                                 <pointsize>10</pointsize>
+                                 <bold>true</bold>
+                                </font>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">QPushButton {
+    background-color: rgb(10, 10, 35);
+    border: none;
+    border-radius: 4px; /* Здесь вы можете настроить радиус закругления */
+}
+QPushButton:hover {
+    background-color: rgb(15, 15, 50);
+}
+QPushButton:pressed {
+    background-color: rgb(5, 5, 20);
+}
+</string>
+                               </property>
+                               <property name="text">
+                                <string>Сгенерировать</string>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QListWidget" name="passwordsList">
+                          <property name="focusPolicy">
+                           <enum>Qt::StrongFocus</enum>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">QListWidget {
+    border: none;
+}
+QListWidget::item {
+    border-bottom: 1px solid lightgray;
+    padding: 5px;
+}
+QListWidget::item:selected {
+    background: lightblue;
+    color: black;
+}
+
+QScrollBar:vertical, QScrollBar:horizontal {
+    border: none;
+    background: rgb(181,184,177);
+    width: 5px; /* Для горизонтального скроллбара это будет высота */
+    height: 5px; /* Только для горизонтального скроллбара */
+    margin: 20px 0 20px 0;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:vertical, QScrollBar::handle:horizontal {
+    background: #a0a0a0;
+    min-height: 20px; /* Для вертикального скроллбара */
+    min-width: 20px;  /* Для горизонтального скроллбара */
+    border-radius: 5px;
+}
+
+QScrollBar::handle:vertical:hover, QScrollBar::handle:horizontal:hover {
+    background: #909090;
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical,
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
+    background: none;
+    border: none;
+    height: 0;
+    width: 0; 
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical,
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
+    background: none;
+}
+</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                   <widget class="QFrame" name="frameSaver">
+                    <property name="geometry">
+                     <rect>
+                      <x>590</x>
+                      <y>20</y>
+                      <width>551</width>
+                      <height>281</height>
+                     </rect>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QFrame#frameSaver {
+    border: 1px solid gray; 
+    border-radius: 10px; 
+}
+</string>
+                    </property>
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_3">
+                     <item row="0" column="0">
+                      <widget class="QFrame" name="frame">
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QHBoxLayout" name="horizontalLayout_12">
+                        <item>
+                         <layout class="QVBoxLayout" name="inputLayout">
+                          <item>
+                           <widget class="QLineEdit" name="line_login">
+                            <property name="font">
+                             <font>
+                              <pointsize>10</pointsize>
+                             </font>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">QLineEdit {
+    border: 1px solid gray; /* Цвет границы */
+    border-radius: 10px; /* Радиус скругления для создания полукруглых краев */
+    background-color: rgba(200, 200, 200, 0.5); /* Замутненный серый фон */
+}
+</string>
+                            </property>
+                            <property name="text">
+                             <string/>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLineEdit" name="line_password">
+                            <property name="font">
+                             <font>
+                              <pointsize>10</pointsize>
+                             </font>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">QLineEdit {
+    border: 1px solid gray; /* Цвет границы */
+    border-radius: 10px; /* Радиус скругления для создания полукруглых краев */
+    background-color: rgba(200, 200, 200, 0.5); /* Замутненный серый фон */
+}
+</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLineEdit" name="line_service">
+                            <property name="font">
+                             <font>
+                              <pointsize>10</pointsize>
+                             </font>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">QLineEdit {
+    border: 1px solid gray; /* Цвет границы */
+    border-radius: 10px; /* Радиус скругления для создания полукруглых краев */
+    background-color: rgba(200, 200, 200, 0.5); /* Замутненный серый фон */
+}
+</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLineEdit" name="line_site">
+                            <property name="font">
+                             <font>
+                              <pointsize>10</pointsize>
+                             </font>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">QLineEdit {
+    border: 1px solid gray; /* Цвет границы */
+    border-radius: 10px; /* Радиус скругления для создания полукруглых краев */
+    background-color: rgba(200, 200, 200, 0.5); /* Замутненный серый фон */
+}
+</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLineEdit" name="lineEdit_note">
+                            <property name="font">
+                             <font>
+                              <pointsize>10</pointsize>
+                             </font>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">QLineEdit {
+    border: 1px solid gray; /* Цвет границы */
+    border-radius: 10px; /* Радиус скругления для создания полукруглых краев */
+    background-color: rgba(200, 200, 200, 0.5); /* Замутненный серый фон */
+}
+</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </item>
+                        <item>
+                         <layout class="QVBoxLayout" name="labelLayout">
+                          <item>
+                           <widget class="QLabel" name="label_2">
+                            <property name="font">
+                             <font>
+                              <pointsize>10</pointsize>
+                              <bold>true</bold>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string>Логин</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLabel" name="label_6">
+                            <property name="font">
+                             <font>
+                              <pointsize>10</pointsize>
+                              <bold>true</bold>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string>Пароль</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLabel" name="label_7">
+                            <property name="font">
+                             <font>
+                              <pointsize>10</pointsize>
+                              <bold>true</bold>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string>Сервис</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLabel" name="label_10">
+                            <property name="font">
+                             <font>
+                              <pointsize>10</pointsize>
+                              <bold>true</bold>
+                             </font>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">QLabel
+{
+margin-bottom:10px;
+}</string>
+                            </property>
+                            <property name="text">
+                             <string>Сайт</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLabel" name="label_11">
+                            <property name="font">
+                             <font>
+                              <pointsize>10</pointsize>
+                              <bold>true</bold>
+                             </font>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">QLabel
+{
+margin-bottom:18px;
+}</string>
+                            </property>
+                            <property name="text">
+                             <string>Заметка</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item row="1" column="0">
+                      <widget class="QPushButton" name="btn_savepass">
+                       <property name="font">
+                        <font>
+                         <pointsize>10</pointsize>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton {
+    background-color: rgb(10, 10, 35);
+    border: none;
+    border-radius: 4px; /* Здесь вы можете настроить радиус закругления */
+}
+QPushButton:hover {
+    background-color: rgb(15, 15, 50);
+}
+QPushButton:pressed {
+    background-color: rgb(5, 5, 20);
+}
+</string>
+                       </property>
+                       <property name="text">
+                        <string>Сохранить</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
                    </widget>
                   </widget>
                  </widget>

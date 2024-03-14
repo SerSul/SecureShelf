@@ -16,6 +16,7 @@ class MainWindow : public QMainWindow
 private slots:
     void toggleMenu(); 
     void openDialog();
+    void on_btn_generate_clicked();
 
 
 public:
@@ -29,5 +30,9 @@ public:
 private:
     Ui::MainWindow ui;
     PasswordModel* passwordModel;
+    ToggleSwitch* toggleDigits;
+    ToggleSwitch* toggleLowercase;
+    ToggleSwitch* toggleSpecialChars;
+    ToggleSwitch* toggleUppercase;
 
 };

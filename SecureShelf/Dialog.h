@@ -21,14 +21,13 @@ private slots:
         bool useSpecialChars = toggleSpecialChars->isChecked();
         bool useUppercase = toggleUppercase->isChecked();
 
-        // Генерация паролей
         for (int i = 0; i < 9; ++i) {
             QString password = generator.generate(ui->line_count->text().toInt(), useLowercase, useUppercase, useDigits, useSpecialChars); // Пример с фиксированной длиной 12
-            ui->passwordsList->addItem(password);
+            if (!password.isEmpty())
+                ui->passwordsList->addItem(password);
             qDebug() << password; 
         }
     }
-
 public:
 
     explicit Dialog(QWidget* parent = nullptr) : QDialog(parent), ui(new Ui::Dialog)
@@ -43,9 +42,13 @@ public:
         ui->buttons_layout->addWidget(toggleLowercase);
         ui->buttons_layout->addWidget(toggleDigits);
         ui->buttons_layout->addWidget(toggleSpecialChars);
+        toggleDigits->setChecked(true);
+        toggleLowercase->setChecked(true);
+        toggleUppercase->setChecked(true);
 
         QRegularExpression rx("[0-9]{1,3}");
         ui->line_count->setValidator(new QRegularExpressionValidator(rx, ui->line_count));
+        ui->line_count->setAttribute(Qt::WA_MacShowFocusRect, 0);
 
 
     }

@@ -1,6 +1,5 @@
 #include "MainWindow.h"
 
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
@@ -9,7 +8,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui.btn_toggle_menu, &QPushButton::clicked, this, &MainWindow::toggleMenu); // бургер меню раздвижение
     connect(ui.btn_passwords, &QPushButton::clicked, this, [this]() { ui.stackedWidget->setCurrentIndex(0); });
     connect(ui.btn_settings, &QPushButton::clicked, this, [this]() { ui.stackedWidget->setCurrentIndex(1); });
-    connect(ui.btn_save, &QPushButton::clicked, this, [this]() { ui.stackedWidget->setCurrentIndex(2); });
     connect(ui.btn_utils, &QPushButton::clicked, this, [this]() { ui.stackedWidget->setCurrentIndex(3); });
     connect(ui.btn_test, &QPushButton::clicked, this, &MainWindow::openDialog);
 
@@ -23,15 +21,27 @@ MainWindow::MainWindow(QWidget *parent)
     auto* delegate = new HighlightDelegate(this);
     ui.passwords_table->setItemDelegate(delegate);
 
-    ToggleSwitch* toggleDigits = new ToggleSwitch(ui.page_utils);
-    ToggleSwitch* toggleLowercase = new ToggleSwitch(ui.page_utils);
-    ToggleSwitch* toggleSpecialChars = new ToggleSwitch(ui.page_utils);
-    ToggleSwitch* toggleUppercase = new ToggleSwitch(ui.page_utils);
-    ui.layoutForToggles->addWidget(toggleDigits);
-    ui.layoutForToggles->addWidget(toggleLowercase);
-    ui.layoutForToggles->addWidget(toggleSpecialChars);
-    ui.layoutForToggles->addWidget(toggleUppercase);
-    //кнопки в utils для паролей
+    toggleDigits = new ToggleSwitch(ui.mainSettings);
+    toggleLowercase = new ToggleSwitch(ui.mainSettings);
+    toggleSpecialChars = new ToggleSwitch(ui.mainSettings);
+    toggleUppercase = new ToggleSwitch(ui.mainSettings);
+    toggleDigits->setChecked(true);
+    toggleLowercase->setChecked(true);
+    toggleUppercase->setChecked(true);
+    ui.buttons_layout->addSpacing(20);
+    ui.buttons_layout->addWidget(toggleUppercase);
+    ui.buttons_layout->addSpacing(20);
+    ui.buttons_layout->addWidget(toggleLowercase);
+    ui.buttons_layout->addSpacing(20);
+    ui.buttons_layout->addWidget(toggleDigits);
+    ui.buttons_layout->addSpacing(20);
+    ui.buttons_layout->addWidget(toggleSpecialChars);
+    ui.buttons_layout->addSpacing(20);
+
+    QRegularExpression rx("[0-9]{1,3}");
+    ui.line_count->setValidator(new QRegularExpressionValidator(rx, ui.line_count));
+    ui.line_count->setAttribute(Qt::WA_MacShowFocusRect, 0);
+
 
 
 }
@@ -49,10 +59,28 @@ void MainWindow::toggleMenu() {
     animation->setEndValue(endWidth); 
     animation->setEasingCurve(QEasingCurve::InOutQuad); 
     animation->start(QPropertyAnimation::DeleteWhenStopped); 
+
 }
 
 void MainWindow::openDialog()
 {
     Dialog dialog(this); // Создаём диалоговое окно
     dialog.exec(); // Показываем его как модальное окно
+}
+
+void MainWindow::on_btn_generate_clicked()
+{
+    PasswordGenerator generator;
+    ui.passwordsList->clear();
+    bool useDigits = toggleDigits->isChecked();
+    bool useLowercase = toggleLowercase->isChecked();
+    bool useSpecialChars = toggleSpecialChars->isChecked();
+    bool useUppercase = toggleUppercase->isChecked();
+
+    for (int i = 0; i < 9; ++i) {
+        QString password = generator.generate(ui.line_count->text().toInt(), useLowercase, useUppercase, useDigits, useSpecialChars); // Пример с фиксированной длиной 12
+        if (!password.isEmpty())
+            ui.passwordsList->addItem(password);
+        qDebug() << password;
+    }
 }

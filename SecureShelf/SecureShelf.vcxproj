@@ -95,6 +95,7 @@
     <ClCompile Include="HighlightDelegate.cpp" />
     <ClCompile Include="PasswordGenerator.cpp" />
     <ClCompile Include="PasswordModel.cpp" />
+    <ClCompile Include="PasswordStorage.cpp" />
     <ClCompile Include="ToggleSwitch.cpp" />
     <QtRcc Include="MainWindow.qrc" />
     <QtUic Include="dialogWindow.ui" />
@@ -107,8 +108,10 @@
       <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|x64'">input</DynamicSource>
       <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).moc</QtMocFileName>
     </ClCompile>
+    <QtUic Include="SavePassword.ui" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="PasswordStorage.h" />
     <QtMoc Include="ToggleSwitch.h" />
     <QtMoc Include="Cryptor.h" />
     <ClInclude Include="ColorRepository.h" />

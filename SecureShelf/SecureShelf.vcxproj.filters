@@ -76,6 +76,9 @@
     <ClCompile Include="Dialog.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
+    <ClCompile Include="PasswordStorage.cpp">
+      <Filter>Source Files\Security</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HighlightDelegate.h">
@@ -86,6 +89,9 @@
     </ClInclude>
     <ClInclude Include="ColorRepository.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PasswordStorage.h">
+      <Filter>Header Files\Security</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -107,6 +113,9 @@
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="dialogWindow.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="SavePassword.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
