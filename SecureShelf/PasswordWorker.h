@@ -1,20 +1,21 @@
 #pragma once
-#ifndef PASSWORDSTORAGE_H
-#define PASSWORDSTORAGE_H
+#ifndef PASSWORDWORKER_H
+#define PASSWORDWORKER_H
 
 #include <QString>
 #include <QFile>
 #include <QDataStream>
 #include "Cryptor.h"
+#include "NameSpaces.cpp"
 
-class PasswordStorage
+class PasswordWorker
 {
 public:
-    PasswordStorage(const QString& filePath, const QString& password);
+    PasswordWorker();
     bool writeData(const QByteArray& data);
-    QByteArray readData();
+    QList<QByteArray> readData();
 private:
-    QString filePath;
+    QString filePath = AppConfig::dbFilePath;
     Cryptor cryptor;
     QString masterPassword;
 

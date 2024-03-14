@@ -1,4 +1,5 @@
 #include "DialogSecret.h"
+#include "PasswordWorker.h"
 #include "NameSpaces.cpp"
 
 DialogSecret::DialogSecret(QWidget* parent) : QDialog(parent), ui(new Ui::DialogSecret) {
@@ -12,34 +13,36 @@ DialogSecret::~DialogSecret() {
 
 void DialogSecret::onEnterSecret() {
     QString secret = ui->line_secret->text();
-    Cryptor cryptor;
-    QString filePath = AppConfig::dbFilePath;
-    QFile file(filePath);
+    PasswordWorker passwordWorker; // Убедитесь, что PasswordWorker инициализируется с правильным путем к файлу
 
-    if (file.open(QIODevice::ReadWrite)) {
-        QByteArray line = file.readLine();
-        if (line.isEmpty()) {
-            QByteArray encryptedTrue = cryptor.encrypt("True", secret);
+    QList<QByteArray> dataList = passwordWorker.readData();
+    if (dataList.isEmpty()) {
+        // Шифруем строку "True"
+        Cryptor cryptor; // Предполагается, что Cryptor корректно инициализирован и настроен
+        QByteArray encryptedTrue = cryptor.encrypt("True", secret);
+
+        // Записываем зашифрованные данные
+        if (passwordWorker.writeData(encryptedTrue)) {
             qDebug() << encryptedTrue;
-            file.write(encryptedTrue);
             emit secretAccepted(secret);
             accept();
         }
         else {
-            QByteArray decryptedLine = cryptor.decrypt(line, secret);
-            qDebug() << "\n" + decryptedLine;
-            if (QString::fromUtf8(decryptedLine) == "True") {
-                qDebug() << "Secret verified successfully";
-                emit secretAccepted(secret);
-                accept();
-            }
-            else {
-                qDebug() << "Secret verification failed";
-            }
+            qDebug() << "Unable to write to file";
         }
-        file.close();
     }
     else {
-        qDebug() << "Unable to open file for reading/writing";
+        // Предполагаем, что первый элемент в dataList содержит нашу зашифрованную строку "True"
+        Cryptor cryptor; // Предполагается, что Cryptor корректно инициализирован и настроен
+        QByteArray decryptedLine = cryptor.decrypt(dataList.first(), secret);
+        if (QString::fromUtf8(decryptedLine) == "True") {
+            qDebug() << "Secret verified successfully";
+            emit secretAccepted(secret);
+            accept();
+        }
+        else {
+            qDebug() << "Secret verification failed";
+        }
     }
 }
+

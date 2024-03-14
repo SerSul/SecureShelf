@@ -97,7 +97,7 @@
     <ClCompile Include="NameSpaces.cpp" />
     <ClCompile Include="PasswordGenerator.cpp" />
     <ClCompile Include="PasswordModel.cpp" />
-    <ClCompile Include="PasswordStorage.cpp" />
+    <ClCompile Include="PasswordWorker.cpp" />
     <ClCompile Include="ToggleSwitch.cpp" />
     <QtRcc Include="MainWindow.qrc" />
     <QtUic Include="DialogSecret.ui" />
@@ -115,7 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="DialogSecret.h" />
-    <ClInclude Include="PasswordStorage.h" />
+    <ClInclude Include="PasswordWorker.h" />
     <QtMoc Include="ToggleSwitch.h" />
     <QtMoc Include="Cryptor.h" />
     <ClInclude Include="ColorRepository.h" />

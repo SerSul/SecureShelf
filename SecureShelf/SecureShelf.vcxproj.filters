@@ -76,14 +76,14 @@
     <ClCompile Include="Dialog.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
-    <ClCompile Include="PasswordStorage.cpp">
+    <ClCompile Include="PasswordWorker.cpp">
       <Filter>Source Files\Security</Filter>
-    </ClCompile>
-    <ClCompile Include="DialogSecret.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="NameSpaces.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogSecret.cpp">
+      <Filter>Source Files\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -96,7 +96,7 @@
     <ClInclude Include="ColorRepository.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PasswordStorage.h">
+    <ClInclude Include="PasswordWorker.h">
       <Filter>Header Files\Security</Filter>
     </ClInclude>
   </ItemGroup>
