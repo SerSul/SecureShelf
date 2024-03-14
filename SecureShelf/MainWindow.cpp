@@ -1,5 +1,6 @@
 #include "MainWindow.h"
 
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
@@ -64,8 +65,8 @@ void MainWindow::toggleMenu() {
 
 void MainWindow::openDialog()
 {
-    Dialog dialog(this); // Создаём диалоговое окно
-    dialog.exec(); // Показываем его как модальное окно
+    Dialog dialog(this); 
+    dialog.exec(); 
 }
 
 void MainWindow::on_btn_generate_clicked()

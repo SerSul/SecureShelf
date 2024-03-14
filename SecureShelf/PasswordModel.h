@@ -1,3 +1,4 @@
+#pragma once
 #ifndef PASSWORDMODEL_H
 #define PASSWORDMODEL_H
 

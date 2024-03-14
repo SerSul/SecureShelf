@@ -1,4 +1,5 @@
 // Cryptor.h
+#pragma once
 #ifndef CRYPTOR_H
 #define CRYPTOR_H
 

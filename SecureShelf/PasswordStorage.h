@@ -1,3 +1,4 @@
+#pragma once
 #ifndef PASSWORDSTORAGE_H
 #define PASSWORDSTORAGE_H
 
@@ -10,17 +11,14 @@ class PasswordStorage
 {
 public:
     PasswordStorage(const QString& filePath, const QString& password);
-
-    bool savePassword(const QString& password);
-    QString loadPassword();
-
+    bool writeData(const QByteArray& data);
+    QByteArray readData();
 private:
     QString filePath;
     Cryptor cryptor;
     QString masterPassword;
 
-    bool writeData(const QByteArray& data);
-    QByteArray readData();
+
 };
 
-#endif // PASSWORDSTORAGE_H
+#endif 

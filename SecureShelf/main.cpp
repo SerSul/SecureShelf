@@ -11,20 +11,18 @@
 #include <QFile>
 #include <QTextStream>
 #include <QDateTime>
+#include "NameSpaces.cpp"
+#include "DialogSecret.h"
 
 
 QFile logFile;
-QString homeDir = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
-QString secureShelfDirPath = QDir(homeDir).filePath(".SecureShelf");
-
 
 void messageHandler(QtMsgType type, const QMessageLogContext& context, const QString& msg)
 {
     if (!logFile.isOpen()) {
-        QString logFilePath = QDir(secureShelfDirPath).filePath("application.log");
-        logFile.setFileName(logFilePath);
+        logFile.setFileName(AppConfig::logFilePath);
         if (!logFile.open(QIODevice::Append | QIODevice::Text)) {
-            qCritical() << "Не удалось открыть файл лога для записи:" << logFilePath;
+            qCritical() << "Не удалось открыть файл лога для записи:" << AppConfig::logFilePath;
             return;
         }
     }
@@ -58,16 +56,15 @@ void messageHandler(QtMsgType type, const QMessageLogContext& context, const QSt
 
 void ensureAppPropertiesExist() {
 
-    QDir dir(secureShelfDirPath);
+    QDir dir(AppConfig::secureShelfDirPath);
     if (!dir.exists()) {
         dir.mkpath(".");
     }
     
-    QString dbFilePath = QDir(secureShelfDirPath).filePath("database");
-    QFile dbFile(dbFilePath);
+    QFile dbFile(AppConfig::dbFilePath);
     if (!dbFile.exists()) {
         if (!dbFile.open(QIODevice::WriteOnly)) {
-            qWarning() << "bug" << dbFilePath;
+            qWarning() << "bug" << AppConfig::dbFilePath;
         }
         else {
             dbFile.close();
@@ -78,13 +75,18 @@ void ensureAppPropertiesExist() {
 
 
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
-    qInstallMessageHandler(messageHandler);
-    ensureAppPropertiesExist();
+
     QApplication a(argc, argv);
     MainWindow w;
-    w.show();
-    return a.exec();
+    DialogSecret secretDialog;
+    QObject::connect(&secretDialog, &DialogSecret::secretAccepted, &w, &MainWindow::setSecret);
+    if (secretDialog.exec() == QDialog::Accepted) {
+        w.show();
+        return a.exec();
+    }
+    else {
+        return 0;
+    }
 }
-

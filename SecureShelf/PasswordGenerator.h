@@ -1,3 +1,4 @@
+#pragma once
 #ifndef PASSWORDGENERATOR_H
 #define PASSWORDGENERATOR_H
 

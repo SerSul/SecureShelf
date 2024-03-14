@@ -5,7 +5,7 @@
 #include <QBrush>
 #include <QToolTip>
 
-// To avoid requiring C++17
+
 template <class T>
 constexpr const T& clamp(const T& v, const T& lo, const T& hi)
 {
@@ -17,16 +17,13 @@ static bool s_darkMode = true;
 QPalette ColorRepository::standardPalette()
 {
     QPalette pal;
-    // TODO brush with noise.png
     pal.setColor(QPalette::Window, windowBackground());
     pal.setColor(QPalette::Base, baseBackground());
     pal.setColor(QPalette::WindowText, text());
     pal.setColor(QPalette::Text, text());
 
-    // Text color on buttons
     pal.setColor(QPalette::ButtonText, text());
 
-    // pal.setColor(QPalette::ToolTipBase, baseBackground());
     pal.setColor(QPalette::ToolTipText, text());
 
     QToolTip::setPalette(pal);

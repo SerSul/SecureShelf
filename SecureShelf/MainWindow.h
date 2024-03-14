@@ -24,10 +24,14 @@ public:
     ~MainWindow();
 
 
-
+public slots:
+    void setSecret(const QString& secret) {
+        this->secret = secret;
+    }
 
 
 private:
+    QString secret;
     Ui::MainWindow ui;
     PasswordModel* passwordModel;
     ToggleSwitch* toggleDigits;
